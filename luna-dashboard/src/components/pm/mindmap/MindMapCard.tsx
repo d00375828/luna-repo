@@ -25,11 +25,11 @@ function filterToSubgraph(full: MindMapData, focusId: string): MindMapData {
 export default function MindMapCard({
   fullData,
   searchQuery,
-  onToast,
+  onToastAction,
 }: {
   fullData: MindMapData;
   searchQuery: string;
-  onToast: (msg: string) => void;
+  onToastAction: (msg: string) => void;
 }) {
   const [selected, setSelected] = useState<MindMapNode | null>(null);
   const [viewFocusId, setViewFocusId] = useState<string | null>(null);
@@ -62,8 +62,8 @@ export default function MindMapCard({
   // Search: toast when a hit is found.
   useEffect(() => {
     if (!searchHit) return;
-    onToast(`Found: ${searchHit.label}`);
-  }, [searchHit, searchQuery, onToast]);
+    onToastAction(`Found: ${searchHit.label}`);
+  }, [searchHit, searchQuery, onToastAction]);
 
   function onSelectNode(n: MindMapNode) {
     setSelected(n);
