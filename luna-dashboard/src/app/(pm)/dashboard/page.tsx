@@ -51,7 +51,7 @@ export default function PMDashboardPage() {
         <MindMapCard
           fullData={mockMindMap}
           searchQuery={query}
-          onToast={showToast}
+          onToastAction={showToast}
         />
 
         <div className="grid gap-6 lg:grid-cols-2">
